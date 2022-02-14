@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bate-Papo UOL</title>
+
+    <!-- favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="imagens/apple-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="imagens/android-icon.png"
+    />
+    <link rel="shortcut icon" href="imagens/favicon.ico" type="image/x-icon" />
+
+    <!-- styles -->
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="imagens/logo-small.png" alt="logo UOL" />
+      <ion-icon name="people" onclick="toggleSidebar()"></ion-icon>
+    </header>
+
+    <div class="login-page">
+      <img src="imagens/logo-big.png" alt="logo UOL" />
+      <div class="login">
+        <p class="error"></p>
+        <label>
+          <input
+            class="login-input"
+            type="text"
+            placeholder="Digite seu nome"
+          />
+        </label>
+        <button class="login-btn" onclick="login()">Entrar</button>
+      </div>
+    </div>
+
+    <div class="content">
+      <main></main>
+      <aside class="hidden">
+        <div class="exit-sidebar" onclick="toggleSidebar()"></div>
+        <div class="sidebar">
+          <p><strong>Escolha um contato para enviar mensagem:</strong></p>
+          <div class="contacts"></div>
+
+          <p><strong>Escolha a visibilidade:</strong></p>
+          <div class="visibilities">
+            <div
+              class="visibility"
+              data-identifier="visibility"
+              onclick="changeVisibility(this)"
+            >
+              <div class="visibility-content">
+                <ion-icon name="lock-open"></ion-icon>
+                <p>Público</p>
+              </div>
+              <img
+                src="imagens/checkmark.svg"
+                alt="checkmark"
+                class="visible"
+              />
+            </div>
+            <div
+              class="visibility"
+              data-identifier="visibility"
+              onclick="changeVisibility(this)"
+            >
+              <div class="visibility-content">
+                <ion-icon name="lock-closed"></ion-icon>
+                <p>Reservadamente</p>
+              </div>
+              <img src="imagens/checkmark.svg" alt="checkmark" />
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+    <footer>
+      <label>
+        <input class="msg-input" type="text" placeholder="Escreva aqui..." />
+      </label>
+      <ion-icon
+        name="paper-plane-outline"
+        class="msg-btn"
+        onclick="postMessage()"
+        data-identifier="send-message"
+      ></ion-icon>
+      <p class="private-msg-description hidden"></p>
+    </footer>
+
+    <!-- scripts -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
